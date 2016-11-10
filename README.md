@@ -7,7 +7,8 @@ EasyWebSocket & Japanese Font sample filses for SDcard use ( ESP8266 ).
 # Change log (更新履歴)
 
 # Credits and license
-License The MIT [Modified person is Mgo-tec.]
+EWS folder files is License The MIT.　　
+Font files is Public Domain.  
 
 詳しくはブログ参照：
 
