@@ -1,0 +1,27 @@
+﻿  </select>
+  <input type='button' value='Get Image' style='width:200px; height:40px; font-size:17px; background-color:#19a9d4; border-radius:25px;' onclick='get_pic()'>
+  <br>Send file : <span id='FileTxt'>Not select</span>
+</form>
+<span id='file_RX_msg' style='color:#9999ff'>.....</span>
+</fieldset>
+<fieldset style='border-style:solid; border-color:gray'>
+  <legend style='font-style: italic; color:grey;'>SD card picture</legend>
+  <center><img id = 'pic_place' ></center>
+</fieldset>
+<br><br>
+<fieldset style='border-style: solid; border-color:#555'>
+  <legend style='font-style: italic; color:grey;'>from WROOM DATA</legend>
+  <span id='wroomTXT' style='font-size:20px; color:#009f00;'></span>
+</fieldset>
+<br>
+<fieldset style='border-style: solid; border-color:#555'>
+  <legend style='font-style: italic; color:grey;'>WebSocket Status</legend>
+  <span id='__wsStatus__' style='font-size:20px; color:#FF00FF;' ></span>
+</fieldset>
+<br><br>
+<input type='button' value='WS-Reconnect' style='background-color:#99cc55; width:200px; height:40px; color:BLUE; font-size:17px; border-radius:10px;' onclick='init();'>
+<br><br>
+<input type='button' value='WS CLOSE' style='background-color:grey; width:150px; height:40px; color:#ff0000; font-size:17px; border-radius:10px;' onclick='WS_close()'>
+<input type='button' value='ReLoad' style='width:150px; height:40px; color:blue; font-size:17px; border-radius:10px;' onclick='window.location.reload()'>
+</body>
+</html>

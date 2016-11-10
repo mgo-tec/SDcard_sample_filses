@@ -1,0 +1,129 @@
+<body style='background:#000; color:#fff;'>
+<font size=3>
+ESP-WROOM-02(ESP8266)<br>SD_EasyWebSocket Beta1.47 Sample
+<br>
+ＪＲ電光掲示板風 Yahoo!ニュース</font>
+<br><br>
+	路線<br>(全角3文字)
+	<input type='text' id='t1S' value='中央線'>
+	<input type='button' value='送信' onclick='doSend_TextBox("t1S");'>
+	<br><br>
+	路線小文字<br>(半角12文字)
+	<input type='text' id='t2M' value='Chuou Line'>
+	<input type='button' value='送信' onclick='doSend_TextBox("t2M");'>
+	<br><br>
+	方向<br>(全角4文字)
+	<input type='text' id='t3S' value='東京方面'>
+	<input type='button' value='送信' onclick='doSend_TextBox("t3S");'>
+	<br><br>
+	方向小文字<br>(半角16文字)
+	<input type='text' id='t4M' value='for Tokyo'>
+	<input type='button' value='送信' onclick='doSend_TextBox("t4M");'>
+	<br><br>
+	電車種別<br>(全角2文字)
+	<input type='text' id='t5S' value='特急'>
+	<input type='button' value='送信' onclick='doSend_TextBox("t5S");'>
+	<br><br>
+	行き先<br>(全角2文字)
+	<input type='text' id='t6S' value='東京'>
+	<input type='button' value='送信' onclick='doSend_TextBox("t6S");'>
+	<br><br>
+	<fieldset style='border-style: solid; border-color:#777777'>
+		<legend style='font-style: italic; color:#777777;'>路線色選択</legend>
+			<input type='button' value='山手線' onclick='doSend(100,"RosenGreen"); data_tmp = 0;' style='width:100px; height:25px; font-size:15px; color:#000000; background-color:#00ff00;'>
+			<input type='button' value='中央線' onclick='doSend(100,"RosenOrange"); data_tmp = 0;' style='width:100px; height:25px; font-size:15px; color:#000000; background-color:#ff7700;'>
+			<input type='button' value='総武線' onclick='doSend(100,"RosenYellow"); data_tmp = 0;' style='width:100px; height:25px; font-size:15px; color:#000000; background-color:#ffdd00;'>
+			<input type='button' value='京浜東北' onclick='doSend(100,"RosenSkyblue"); data_tmp = 0;' style='width:100px; height:25px; font-size:15px; color:#000000; background-color:#00ccff;'>
+			<input type='button' value='総武快速' onclick='doSend(100,"RosenBlue"); data_tmp = 0;' style='width:100px; height:25px; font-size:15px; color:#ffffff; background-color:#0000ff;'>
+			<input type='button' value='常磐線' onclick='doSend(100,"RosenDeepGreen"); data_tmp = 0;' style='width:100px; height:25px; font-size:15px; color:#ffffff; background-color:#007700;'>
+	</fieldset>
+	<br>
+	<fieldset style='border-style: solid; border-color:#777777'>
+		<legend style='font-style: italic; color:#777777;'>点滅文字列(全角8文字)</legend>
+			<input type='text' id='t7S' value='運転見合わせ中！'>
+			<input type='button' value='送信' onclick='doSend_TextBox("t7S");'>
+			<br><br>
+			<input type='button' value='ON' onclick='doSend(100,"BlinkON"); data_tmp = 0;' style='width:100px; height:25px; font-size:15px; color:#ffffff; background-color:#ff0000;'>
+			<input type='button' value='OFF' onclick='doSend(100,"blinkOFF"); data_tmp = 0;' style='width:100px; height:25px; font-size:15px; color:#000000; background-color:#777777;'>
+	</fieldset>
+	<br>
+	<fieldset style='border-style: solid; border-color:#777777'>
+		<legend style='font-style: italic; color:#777777;'>電光掲示板文字列</legend>
+			任意文字列　<input type='text' id='t8S' value='今度の電車は超特急です。只今、品川を出ました。'>
+			<input type='button' value='送信' onclick='doSend_TextBox("t8S");'>
+			<br><br>
+			<input type='button' value='Yahoo! TOP NEWS Topics' onClick="doSend(100,'Yahoo'); data_tmp = 0;" style='width:300px; height:30px; font-size:15px; color:#ff0000; background-color:#dddddd; border-color:gray; border-radius:10px;' >
+			<br><br>
+			<fieldset style='border-style: solid; border-color:#777777'>
+				<legend style='font-style: italic; color:#777777;'>メッセージ色</legend>
+					<input type='button' value='緑' onclick='doSend(100,"MsgGreen"); data_tmp = 0;' style='width:100px; height:25px; font-size:15px; color:#000000; background-color:#00ff00;'>
+					<input type='button' value='オレンジ' onclick='doSend(100,"MsgOrange"); data_tmp = 0;' style='width:100px; height:25px; font-size:15px; color:#000000; background-color:#ff7700;'>
+					<input type='button' value='白' onclick='doSend(100,"MsgWhite"); data_tmp = 0;' style='width:100px; height:25px; font-size:15px; color:#000000; background-color:#ffffff;'>
+					<input type='button' value='青' onclick='doSend(100,"MsgBlue"); data_tmp = 0;' style='width:100px; height:25px; font-size:15px; color:#ffffff; background-color:#0000ff;'>
+					<input type='button' value='赤' onclick='doSend(100,"MsgRed"); data_tmp = 0;' style='width:100px; height:25px; font-size:15px; color:#ffffff; background-color:#ff0000;'>
+			</fieldset>
+		<br>
+		Scrolle Speed　
+		<canvas id='SPEED' width='200' height='40'></canvas>
+		<script type='text/javascript'>
+			fnc_SPEED();
+			function fnc_SPEED(){
+				var c_w = 200;
+				var c_h = 40;
+				var line_width = 5;
+				var canvas2 = document.getElementById('SPEED');
+				var ctx2 = canvas2.getContext('2d');
+				ctx2.clearRect(0, 0, c_w, c_h);
+				ctx2.beginPath();
+				ctx2.lineWidth = line_width;
+				ctx2.strokeStyle = '#777777';
+				ctx2.strokeRect(0,0,c_w,c_h);
+				canvas2.addEventListener('touchmove', slider_SPEED, false);
+				canvas2.addEventListener('touchstart', slider_SPEED, false);
+				function slider_SPEED(event3) {
+					event3.preventDefault();
+					event3.stopPropagation();
+					var evt555=event3.touches[0];
+					var OffSet2 = evt555.target.getBoundingClientRect();
+					var ex = evt555.clientX - OffSet2.left;
+					if( ex < 0 ){ex = 0;}
+					else if(ex>c_w){ex = c_w;}
+					var e_cl_X = Math.floor(ex);
+					ctx2.clearRect(0, 0, c_w, c_h);
+					ctx2.beginPath();
+					ctx2.fillStyle = '#0077ff';
+					ctx2.rect(0,0, e_cl_X, c_h);
+					ctx2.fill();
+					ctx2.beginPath();
+					ctx2.lineWidth = line_width;
+					ctx2.strokeStyle = '#777777';
+					ctx2.strokeRect(0,0,c_w,c_h);
+					doSend(String(e_cl_X), 'SPEED');
+				};
+			};
+		</script>
+	</fieldset>
+	<br><br>
+	
+	<fieldset style='border-style: solid; border-color:#55f'>
+		<legend style='font-style: italic; color:#7777ff;'>Select the smartphone side file to be sent to the ESP8266</legend>
+		JPEG File Only.<br>
+		<input type='file' id='BIN_file_transfer' style='background-color:#333333;' onchange='event_msg("file_TX_msg", value);'>
+		<br><br>
+		<input type='button' value='Send Image' style='width:150px; height:40px; font-size:17px; background-color:#3333ff; color:white; border-radius:25px;' onclick='send_pic("BIN_file_transfer")'>
+		<br>
+		File Message --> <span id='file_TX_msg'></span>
+  </fieldset>
+	<br>  
+	<br>
+	<fieldset style='border-style: solid; border-color:#555'>
+		<legend style='font-style: italic; color:grey;'>WebSocket Status</legend>
+		<span id='__wsStatus__' style='font-size:20px; color:#FF00FF;' ></span>
+	</fieldset>
+	<br><br>
+	<input type='button' value='WS-Reconnect' style='background-color:#99cc55; width:200px; height:40px; color:BLUE; font-size:17px; border-radius:10px;' onclick='init();'>
+	<br><br>
+	<input type='button' value='WS CLOSE' style='background-color:grey; width:150px; height:40px; color:#ff0000; font-size:17px; border-radius:10px;' onclick='WS_close()'>
+	<input type='button' value='ReLoad' style='width:150px; height:40px; color:blue; font-size:17px; border-radius:10px;' onclick='window.location.reload()'>
+</body>
+</html>

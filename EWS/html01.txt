@@ -1,0 +1,19 @@
+
+<body style='background:#000; color:#fff;'>
+<font size=3>
+ESP-WROOM-02(ESP8266)<br>SD_EasyWebSocket Beta1.41 Sample02</font>
+<br><br>
+<fieldset style='border-style: solid; border-color:#55f'>
+  <legend style='font-style: italic; color:#7777ff;'>Select the smartphone side file to be sent to the ESP8266</legend>
+  JPEG File Only.<br>
+  <input type='file' id='BIN_file_transfer' style='background-color:#333333;' onchange='event_msg("file_TX_msg", value);'>
+  <br><br>
+  <input type='button' value='Send Image' style='width:150px; height:40px; font-size:17px; background-color:#3333ff; color:white; border-radius:25px;' onclick='send_pic("BIN_file_transfer")'>
+  <br>
+  File Message --> <span id='file_TX_msg'></span>
+  </fieldset>
+<br>  
+<fieldset style='border-style:solid; border-color:#19a9d4'>
+  <legend style='font-style: italic; color:#19a9d4;'>Select the ESP8266 side SD card in the file</legend>
+  <form name='Fsel'>
+    <select id='File_sel' style='width:120px; height:40px;' onchange='event_msg("FileTxt", value);'> 

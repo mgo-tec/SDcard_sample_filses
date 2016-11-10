@@ -1,0 +1,8 @@
+﻿<body style='background:#000; color:#fff;'>
+<font size=3>
+ESP-WROOM-02(ESP8266)<br>SD_EasyWebSocket Beta1.41 Sample01</font><br><br>
+<fieldset style='border-style:solid; border-color:#555'>
+  <legend style='font-style: italic; color:grey;'>SD card picture file select</legend>
+  <form name='Fsel'>
+    <select id='File_sel' style='width:120px; height:40px;' onchange='get_pic();'>
+  
