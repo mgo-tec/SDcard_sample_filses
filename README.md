@@ -7,9 +7,17 @@ EasyWebSocket & Japanese Font sample filses for SDcard use ( ESP8266 ).
 # Change log (更新履歴)
 
 # Credits and license
-EWS folder files is License The MIT.　　
-Font files is Public Domain.  
+EWS folder files is License The MIT.  
+  
+*Shinonome Font -- License is Public Domain.  
+URL: http://openlab.ring.gr.jp/efont/shinonome/  
+  
+*Misaki Font -- License if Free.  
+URL: http://www.geocities.jp/littlimi/misaki.htm  
+  
+東雲フォントライセンス：Public Domain
+美咲フォントライセンス：フリー
 
-詳しくはブログ参照：
-
+詳しくはブログ参照：  
+My Blog:  
 https://www.mgo-tec.com
