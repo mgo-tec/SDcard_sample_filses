@@ -15,8 +15,8 @@ URL: http://openlab.ring.gr.jp/efont/shinonome/
 *Misaki Font -- License if Free.  
 URL: http://www.geocities.jp/littlimi/misaki.htm  
   
-東雲フォントライセンス：Public Domain
-美咲フォントライセンス：フリー
+東雲フォントライセンス：Public Domain  
+美咲フォントライセンス：フリー  
 
 詳しくはブログ参照：  
 My Blog:  
