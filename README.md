@@ -12,7 +12,7 @@ EWS folder files is License The MIT.
 *Shinonome Font -- License is Public Domain.  
 URL: http://openlab.ring.gr.jp/efont/shinonome/  
   
-*Misaki Font -- License if Free.  
+*Misaki Font -- License is Free.  
 URL: http://www.geocities.jp/littlimi/misaki.htm  
   
 東雲フォントライセンス：Public Domain  
